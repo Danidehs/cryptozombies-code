@@ -30,6 +30,7 @@ contract ZombieFactory is Ownable {
     mapping(address => uint) ownerZombieCount;
 
     function _createZombie(string memory _name, uint _dna) internal {
+        // Separated .push and uint id variable because they no longer compatible (tuple with int_const 1).
         zombies.push(
             Zombie(_name, _dna, 1, uint32(block.timestamp + cooldownTime), 0, 0)
         );
